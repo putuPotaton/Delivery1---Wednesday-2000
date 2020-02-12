@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delievery 1</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+    <section class="gallery">
+        <div class="imgs-container grid ">
+        </div>
+    </section>
+
+
+
+
+    <section class="meme-editor flex">
+
+
+        <div class="canvas-container flex-1">
+            <canvas id="my-canvas" height="900" width="500" onmousedown="mousedown(event)" onmousemove="mousemove(event)" onmouseup="mouseup(event)" style="border: 1px solid black;"></canvas>
+        </div>
+        <div class="editor-control flex-1">
+            <input class="btn" type="color" onchange="setColor(this.value)">
+            <input class="btn" type="color" onchange="setlines(this.value)">
+            <button class="btn" onclick="setCurrShape('triangle')">Triangle</button>
+            <button class="btn" onclick="setCurrShape('rect')">Rect</button>
+            <button class="btn" onclick="addText()">Text</button>
+            <button class="btn" onclick="setCurrShape('line')">Line</button>
+            <button class="btn" onclick="setCurrShape('fan')">fan</button>
+            <button class="btn" onclick="setCurrShape('dna')">DNA</button>
+            <button class="btn" onclick="setCurrShape('circle')">circle</button>
+            <input class="text-to-draw" onkeyup="reRenderMemeIMG(this)" " placeholder="text to add " type="text ">
+            <button onclick="clearCanvas() ">Clear</button>
+
+            <a href="# " onclick="drawImg(this) " download=" ">img upload</a>
+            <a href="# " onclick="downloadCanvas(this) " download=" ">Download</a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <script src="js/service.js "></script>
+    <script src="js/main.js "></script>
+</body>
+
+</html>
