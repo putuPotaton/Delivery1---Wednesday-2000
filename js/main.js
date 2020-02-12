@@ -10,12 +10,12 @@ function onInit() {
     gCanvas.height = elContainer.offsetHeight;
     gCanvas.height = gCanvas.width;
     gCtx = gCanvas.getContext('2d');
+    newLine();
     renderMemeIMG();
 
 }
 
-// imgID = 5
-function renderMemeIMG() {
+function renderMemeIMG(imgID = 5) {
     var memeImgID = getselectedImgId();
     var img = new Image();
     img.src = `./meme-imgs/${memeImgID}.jpg`;
@@ -26,20 +26,21 @@ function renderMemeIMG() {
 }
 
 function reRenderMemeIMG(input) {
-    gMeme.lines[0].txt = input.value;
-    console.log(gMeme.lines[0].txt);
+    gMeme.lines[gMeme.selectedLineIdx].txt = input.value;
     renderMemeIMG();
 }
 
-function drawText() {
-    gCtx.lineWidth = '2';
-    gCtx.strokeStyle = gMeme.lines[0].color;
-    gCtx.fillStyle = gMeme.lines[0].color;
-    gCtx.font = `${gMeme.lines[0].size}px Impact`;
-    gCtx.textAlign = gMeme.lines[0].align;
-    gCtx.strokeText(gMeme.lines[0].txt, 150, 150);
-    gCtx.fillText(gMeme.lines[0].txt, 150, 150);
 
+function drawText() {
+    gMeme.lines.forEach(line => {
+        gCtx.lineWidth = '2';
+        gCtx.strokeStyle = line.color;
+        gCtx.fillStyle = line.color;
+        gCtx.font = `${line.size}px Impact`;
+        gCtx.textAlign = line.align;
+        gCtx.strokeText(line.txt, line.lineX, line.lineY);
+        gCtx.fillText(line.txt, line.lineX, line.lineY);
+    });
 }
 
 function viewText(text) {
@@ -62,16 +63,11 @@ function onGalleryImageClicked(clickedID) {
     gMeme = {
         selectedImgId: clickedID,
         selectedLineIdx: 0,
-        lines: [{
-            txt: '',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }]
-    }
+        lines: []
+
+    };
+    newLine();
     renderMemeIMG(clickedID)
-
-
 }
 
 function rendIMGs() {

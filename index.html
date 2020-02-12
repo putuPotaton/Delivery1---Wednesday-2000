@@ -28,19 +28,20 @@
             <input class="btn" type="color" onchange="setlines(this.value)">
             <button class="btn" onclick="setCurrShape('triangle')">Triangle</button>
             <button class="btn" onclick="setCurrShape('rect')">Rect</button>
-            <button class="btn" onclick="addText()">Text</button>
+            <button class="btn" onclick="saveText()">Text</button>
             <button class="btn" onclick="setCurrShape('line')">Line</button>
             <button class="btn" onclick="setCurrShape('fan')">fan</button>
             <button class="btn" onclick="setCurrShape('dna')">DNA</button>
             <button class="btn" onclick="setCurrShape('circle')">circle</button>
             <input class="text-to-draw" onkeyup="reRenderMemeIMG(this)" " placeholder="text to add " type="text ">
             <button onclick="clearCanvas() ">Clear</button>
+            <button onclick="addLine() ">Add Line</button>
 
             <a href="# " onclick="drawImg(this) " download=" ">img upload</a>
             <a href="# " onclick="downloadCanvas(this) " download=" ">Download</a>
 
         </div>
-
+<img src=" " id="${} " onclick="onGalleryImageClicked(this.id) " alt=" ">
 
     </section>
 

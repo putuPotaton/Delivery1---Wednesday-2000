@@ -8,13 +8,18 @@ var gIsMouseDown = false;
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
-    lines: [{
-        txt: 'I never eat Falafel',
-        size: 25,
-        align: 'left',
-        color: 'red'
-    }]
+    lines: []
+        // {
+        //     lineX: 0,
+        //     lineY: _getLineY(),
+        //     txt: 'I never eat Falafel',
+        //     size: 25,
+        //     align: 'left',
+        //     color: 'red'
+        // }
 }
+
+
 
 var gCanvas;
 var gCtx;
@@ -66,12 +71,35 @@ function getLinesAmount() {
     return gMeme.lines.length;
 }
 
+// function getNextLine(){
+//     var defaultLine()=gMeme.lines.length
+// }
+
+function _getNextLineY(linesCount) {
+    var canavasHeight = gCanvas.offsetHeight;
+    if (linesCount === 0) {
+        return (0.2 * canavasHeight);
+    } else if (linesCount === 1) {
+        return (0.9 * canavasHeight);
+    } else {
+        return (0.5 * canavasHeight + 12);
+    }
+}
+
 
 function newLine() {
-    gMeme.lines.push({
+    var defaultLine = {
+        lineX: 0,
+        lineY: 0,
         txt: 'add text',
         size: 25,
         align: 'left',
         color: 'red'
-    })
+    };
+
+    gMeme.selectedLineIdx = gMeme.lines.length;
+    defaultLine.lineY = _getNextLineY(gMeme.lines.length);
+    gMeme.lines.push(defaultLine);
 }
+
+// gMeme.lines.push
