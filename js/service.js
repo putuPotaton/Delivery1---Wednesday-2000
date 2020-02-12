@@ -41,7 +41,7 @@ function _createGImages() {
     var Images = [];
     for (var i = 1; i <= 18; i++) {
         var image = new Image();
-        image.src = `./meme-imgs/${i}.JPG`;
+        image.src = `./meme-imgs/${i}.jpg`;
         Images.push({
             id: ++gNextiID,
             src: image.src,
@@ -69,7 +69,7 @@ function getLinesAmount() {
 
 function newLine() {
     gMeme.lines.push({
-        txt: 'I never eat Falafel',
+        txt: 'add text',
         size: 25,
         align: 'left',
         color: 'red'

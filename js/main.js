@@ -18,7 +18,7 @@ function onInit() {
 function renderMemeIMG() {
     var memeImgID = getselectedImgId();
     var img = new Image();
-    img.src = `./meme-imgs/${memeImgID}.JPG`;
+    img.src = `./meme-imgs/${memeImgID}.jpg`;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawText();
