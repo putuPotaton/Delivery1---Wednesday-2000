@@ -14,11 +14,11 @@ function onInit() {
 
 }
 
-
-function renderMemeIMG(imgID = 5) {
+// imgID = 5
+function renderMemeIMG() {
     var memeImgID = getselectedImgId();
     var img = new Image();
-    img.src = `./meme-imgs (square)/${memeImgID}.JPG`;
+    img.src = `./meme-imgs/${memeImgID}.JPG`;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawText();
@@ -242,4 +242,9 @@ function setColor(color) {
     gCtx.fillStyle = color;
     gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
 
+}
+
+function addLine() {
+    if (getLinesAmount() == 3) { return; }
+    newLine();
 }

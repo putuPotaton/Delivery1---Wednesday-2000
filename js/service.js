@@ -10,7 +10,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'I never eat Falafel',
-        size: 20,
+        size: 25,
         align: 'left',
         color: 'red'
     }]
@@ -32,13 +32,16 @@ function setCurrShape(shape) {
     gCurrShape = shape;
 }
 
-
+var imageSearvhMapper = {
+    1: ["funy", "sad"],
+    3: [""]
+}
 
 function _createGImages() {
     var Images = [];
     for (var i = 1; i <= 18; i++) {
         var image = new Image();
-        image.src = `./meme-imgs (square)/${i}.JPG`;
+        image.src = `./meme-imgs/${i}.JPG`;
         Images.push({
             id: ++gNextiID,
             src: image.src,
@@ -57,4 +60,18 @@ function getImgsToShow() {
 function updatePrevs(x, y) {
     gPrevY = y;
     gPrevX = x;
+}
+
+function getLinesAmount() {
+    return gMeme.lines.length;
+}
+
+
+function newLine() {
+    gMeme.lines.push({
+        txt: 'I never eat Falafel',
+        size: 25,
+        align: 'left',
+        color: 'red'
+    })
 }
