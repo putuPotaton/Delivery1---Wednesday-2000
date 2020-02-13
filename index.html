@@ -9,16 +9,45 @@
 </head>
 
 <body onload="onInit()">
+    <section class="top-section">
+        <nav class="head-nav flex justify-between align-center">
+            <img class="logo-img" src="../DESIGN/LOGO/LOGO.png" alt="logo">
+            <div class="nav-buttons">
+                <button class="btn-head-nav section-shifter" onclick="toggleSections(this)">Meme Maker</button>
+                <button class="btn-head-nav ">memes</button>
+            </div>
+        </nav>
+
+
+    </section>
+
+
     <section class="gallery">
-        <div class="imgs-container grid ">
-        </div>
+        <div class="gallery-header">
+            <div class="secondary-header flex justify-around ">
+                <input onchange="onSearchWordChanged(this)" type="list" list="searchwords" name="searchwords" method="get" class="searchwords-search-bar">
+                <datalist id="searchwords">
+            <option value="excited"></option>
+            <option value="evil"></option>
+            <option value="funny"></option>
+            <option value="kittens"></option>
+            <option value="love"></option>
+            <option value="trump"></option>
+            <option value="dogs"></option>
+            <option value="wow"></option>
+        </datalist>
+                <div class="search-words-dsiplay"></div>
+            </div>
+
+
+
+            <div class="imgs-container grid ">
+            </div>
     </section>
 
 
 
-
-    <section class="meme-editor flex">
-
+    <div class="meme-editor">
 
         <div class="canvas-container flex-1">
             <canvas id="my-canvas" height="900" width="500" onmousedown="mousedown(event)" onmousemove="mousemove(event)" onmouseup="mouseup(event)" style="border: 1px solid black;"></canvas>
@@ -28,7 +57,6 @@
             <input class="btn" type="color" onchange="setlines(this.value)">
             <button class="btn" onclick="setCurrShape('triangle')">Triangle</button>
             <button class="btn" onclick="setCurrShape('rect')">Rect</button>
-            <button class="btn" onclick="saveText()">Text</button>
             <button class="btn" onclick="setCurrShape('line')">Line</button>
             <button class="btn" onclick="setCurrShape('fan')">fan</button>
             <button class="btn" onclick="setCurrShape('dna')">DNA</button>
@@ -36,15 +64,24 @@
             <input class="text-to-draw" onkeyup="reRenderMemeIMG(this)" " placeholder="text to add " type="text ">
             <button onclick="clearCanvas() ">Clear</button>
             <button onclick="addLine() ">Add Line</button>
-
+            <button onclick="switchLine() ">Next Line</button>
+            <button onclick="switchAlign( 'Left') ">Align Left</button>
+            <button onclick="switchAlign( 'center') ">Align center</button>
+            <button onclick="switchAlign( 'right') ">Align right</button>
+            <button onmousedown="moveLine( 'up') ">move up</button>
+            <button onmousedown="moveLine( 'down') ">move down</button>
+            <button onmousedown="moveLine( 'left') ">move left</button>
+            <button onmousedown="moveLine( 'right') ">move right</button>
+            <button onmousedown="deleteCurrLine( ) ">DELETE</button>
+            <button onmousedown="fontSizeChange( -2) ">font -</button>
+            <button onmousedown="fontSizeChange( 2) ">font +</button>
             <a href="# " onclick="drawImg(this) " download=" ">img upload</a>
             <a href="# " onclick="downloadCanvas(this) " download=" ">Download</a>
 
         </div>
-<img src=" " id="${} " onclick="onGalleryImageClicked(this.id) " alt=" ">
 
-    </section>
 
+</div>
 
 
     <script src="js/service.js "></script>
