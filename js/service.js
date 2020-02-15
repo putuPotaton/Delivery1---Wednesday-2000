@@ -60,7 +60,7 @@ function _createGImages() {
 
 function getImgsToShow(searchWord = null) {
     if (!searchWord) { return gImages; }
-    debugger
+
     var imagesToShow = gImages.map(image => {
         var countMatch = 0;
         for (var i = 0; i < image.searchWords.length; i++) {
@@ -88,15 +88,18 @@ function getLinesAmount() {
 
 
 function _getNextLineY(linesCount) {
-    var canavasHeight = gCanvas.offsetHeight;
+    var canavasHeight = gCanvas.height;
     if (linesCount === 0) {
         return (0.2 * canavasHeight);
-    } else if (linesCount === 1) {
-        return (0.9 * canavasHeight);
-    } else {
-        return (0.5 * canavasHeight + 12);
+    } else if (linesCount === 2) {
+        return (0.45 * gCanvas.height);
+    } else if (gMeme.lines[0].lineY > gCanvas.height * 0.7) {
+        return (0.35 * gCanvas.height);
     }
+    return (0.85 * gCanvas.height);
 }
+
+
 
 
 function newLine() {
@@ -107,7 +110,7 @@ function newLine() {
         size: 25,
         fontFamily: 'Impact',
         align: 'left',
-        color: 'red'
+        color: 'black'
     };
 
     gMeme.selectedLineIdx = gMeme.lines.length;

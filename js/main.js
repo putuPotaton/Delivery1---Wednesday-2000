@@ -6,12 +6,12 @@ function onInit() {
     rendIMGs();
     gCanvas = document.getElementById('my-canvas');
     var elContainer = document.querySelector('.canvas-container');
-    gCanvas.width = elContainer.offsetWidth - 8;
-    gCanvas.height = elContainer.offsetHeight;
-    gCanvas.height = gCanvas.width;
+    // gCanvas.width = elContainer.width;
+    // gCanvas.height = elContainer.height;
+    // gCanvas.height = gCanvas.width;
     gCtx = gCanvas.getContext('2d');
-    newLine();
     renderMemeIMG();
+    newLine();
 }
 
 function renderMemeIMG() {
@@ -237,7 +237,7 @@ function clearCanvas() {
 function setColor(color) {
 
     gCtx.fillStyle = color;
-    gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
+    // gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
 
 }
 
@@ -254,13 +254,25 @@ function switchLine() {
     } else {
         gMeme.selectedLineIdx++;
     }
-    debugger
     document.querySelector('.text-to-draw').value = gMeme.lines[gMeme.selectedLineIdx].txt;
 }
 
 function switchAlign(direction) {
     gMeme.lines[gMeme.selectedLineIdx].align = direction;
-    gMeme.lines[gMeme.selectedLineIdx].lineX = gCanvas.offsetWidth / 2;
+    switch (direction) {
+        case 'start':
+            gMeme.lines[gMeme.selectedLineIdx].lineX = gCanvas.width * 0.1;
+            break;
+        case 'center':
+            gMeme.lines[gMeme.selectedLineIdx].lineX = gCanvas.width * 0.5;
+            break;
+        case 'end':
+            gMeme.lines[gMeme.selectedLineIdx].lineX = gCanvas.width * 0.9;
+            break;
+
+    }
+    renderMemeIMG();
+
 }
 
 function moveLine(direction) {
@@ -299,14 +311,14 @@ function fontSizeChange(diff) {
 
 
 function onSearchWordChanged(input) {
-    debugger
+
     console.log(input.value);
     rendIMGs(input.value);
 
 }
 
 function deleteCurrLine() {
-    debugger
+
     var elTxtInput = document.querySelector('.text-to-draw')
     gMeme.lines.splice([gMeme.selectedLineIdx], 1);
     if (gMeme.selectedLineIdx > 0) {
@@ -314,7 +326,7 @@ function deleteCurrLine() {
         elTxtInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
         renderMemeIMG();
     } else if (gMeme.lines.length > 0) {
-        gMeme.selectedLineIdx++;
+        // gMeme.selectedLineIdx++;
         elTxtInput.value = gMeme.lines[gMeme.selectedLineIdx].txt;
         renderMemeIMG();
     } else {
@@ -324,4 +336,8 @@ function deleteCurrLine() {
         renderMemeIMG();
     }
 
+}
+
+function onFontChange(fontFamily) {
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontFamily;
 }
