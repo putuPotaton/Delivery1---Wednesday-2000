@@ -14,3 +14,6 @@ function getselectedImgId() {
 function getLinesAmount() {
     return gMeme.lines.length;
 }
+function getSlectedImgId(){
+    return gMeme.selectedImgId;
+}

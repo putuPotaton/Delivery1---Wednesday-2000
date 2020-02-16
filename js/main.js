@@ -36,8 +36,6 @@ function drawText() {
     var lines = getMemeLines();
     lines.forEach(line => {
         gCtx.lineWidth = '2';
-        gCtx.strokeStyle = line.color;
-        // gCtx.fillStyle = line.color;
         gCtx.font = `${line.size}px  ${line.fontFamily}`;
         gCtx.textAlign = line.align;
         gCtx.strokeText(line.txt, line.lineX, line.lineY);
@@ -383,6 +381,9 @@ function onSearchWordClicked(clickedSearchWord) {
     rendSearchWords();
 }
 
-// function shareToFacebook(){
-
-// }
+    function downloadMeme() {
+        var download = document.querySelector('.download');
+        var image = document.getElementById("my-canvas").toDataURL(`image${getSlectedImgId}/png`).replace("image/png", "image/octet-stream");
+        download.setAttribute("href", image);
+        //download.setAttribute("download","archive.png");
+        }

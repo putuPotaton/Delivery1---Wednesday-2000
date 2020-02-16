@@ -59,17 +59,22 @@
                 <input type="color" onchange="onFillChange(this.value)" class="color-input" id="favcolor"  name="favcolor">
                 <input type="color" onchange="onStrokeChange(this.value)" class="color-input" id="favcolor"  name="favcolor">
                 <div class="save-share">
-
- 
-
-
-                    <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7'); return false;">
-                        Share   
-                     </a>            
+                    <a class="download" download="My_NEW_MEME.png">
+                        <button type="button" onClick="downloadMeme()">Download</button>
+                        </a> 
                         </div>
+                        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                            <input name="img" id="imgData" type="hidden" value="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAGQAZADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//Z">
+                            <button class="btn" type="submit">Publish</button>
+
+                            <div class="share-container">
+                                <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2'); return false;">
+                                   Share   
+                                </a></div>
+                          </form>
         </div>
     </div>
-    <div class="shapes">
+    <!-- <div class="shapes"> -->
         <!-- <button class="btn controle-btn" onclick="setCurrShape( 'triangle')">Triangle</button>
 
             <button class="btn controle-btn" onclick="setCurrShape( 'rect')">Rect</button>
@@ -84,7 +89,7 @@
         <!-- <a href="#" onclick="drawImg(this)" download="">img upload</a>
             <a href="#" onclick="downloadCanvas(this)" download="">Download</a> -->
 
-    </div>
+    <!-- </div> -->
 
 
     </div>
