@@ -110,6 +110,12 @@ function setCurrLineFont(fontFamily) {
 function getSearchWords() {
     return gSearchWords;
 }
+function changeFill(color){
+    gCtx.fillStyle=color;
+}
+function changeStroke(color){
+    gCtx.strokeStyle=color;
+}
 
 
 function _createGImages() {

@@ -37,12 +37,16 @@ function drawText() {
     lines.forEach(line => {
         gCtx.lineWidth = '2';
         gCtx.strokeStyle = line.color;
-        gCtx.fillStyle = line.color;
+        // gCtx.fillStyle = line.color;
         gCtx.font = `${line.size}px  ${line.fontFamily}`;
         gCtx.textAlign = line.align;
-        // gCtx.strokeText(line.txt, line.lineX, line.lineY);
+        gCtx.strokeText(line.txt, line.lineX, line.lineY);
         gCtx.fillText(line.txt, line.lineX, line.lineY);
     });
+}
+
+function onStrokeChange(color){
+    changeStroke(color);
 }
 
 function onGalleryImageClicked(clickedID) {
@@ -318,10 +322,9 @@ function moveLine(direction) {
     }
 }
 
-// function stopLineMove() {
-//     gIsMouseDown = false;
-// }
-
+function onFillChange(color){
+    changeFill(color);
+}
 
 function fontSizeChange(diff) {
     ChangeLineFontSize(diff);
@@ -379,3 +382,7 @@ function onSearchWordClicked(clickedSearchWord) {
     word.clicks++;
     rendSearchWords();
 }
+
+// function shareToFacebook(){
+
+// }

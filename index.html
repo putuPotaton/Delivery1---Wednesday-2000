@@ -56,7 +56,17 @@
                     <option name="fontFamily" value="Arial">Arial</option>
                     <option name="fontFamily" value="Cursive">Cursive</option>
                 </select>
-                <input type="color"  class="color-input" id="favcolor"  name="favcolor">
+                <input type="color" onchange="onFillChange(this.value)" class="color-input" id="favcolor"  name="favcolor">
+                <input type="color" onchange="onStrokeChange(this.value)" class="color-input" id="favcolor"  name="favcolor">
+                <div class="save-share">
+
+ 
+
+
+                    <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e4967f2c06b7'); return false;">
+                        Share   
+                     </a>            
+                        </div>
         </div>
     </div>
     <div class="shapes">
@@ -105,10 +115,10 @@
 
 
 
-
     <script src="js/memes.js"></script>
     <script src="js/service.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/upload-service.js"></script>
 </body>
 
 </html>
