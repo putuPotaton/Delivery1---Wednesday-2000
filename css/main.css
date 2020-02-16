@@ -44,12 +44,20 @@ body {
 }
 
 .search-words-dsiplay {
-    width: 536px;
+    /* width: 536px; */
     height: 50px;
     box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
     background-color: #fefefe;
     opacity: 0.4;
+    padding: 0.5rem 0.3rem;
+    text-align: center;
+}
+
+.search-words-dsiplay>* {
+    margin: 0 0.5rem;
+    font-family: Impact;
+    color: #015d33;
 }
 
 .btn-head-nav {

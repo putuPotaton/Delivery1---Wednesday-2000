@@ -14,7 +14,7 @@
             <img class="logo-img" src="../DESIGN/LOGO/LOGO.png" alt="logo">
             <div class="nav-buttons">
                 <button class="btn-head-nav section-shifter" onclick="toggleSections(this)">Meme Maker</button>
-                <button class="btn-head-nav ">memes</button>
+                <button class="btn-head-nav">memes</button>
             </div>
         </nav>
 
@@ -28,76 +28,77 @@
             <canvas id="my-canvas" height="350" width="350" onmousedown="mousedown(event)" onmousemove="mousemove(event)" onmouseup="mouseup(event)" style="border: 1px solid black;"></canvas>
         </div>
         <div class="editor-control flex  column flex-1">
-            <input class="text-to-draw " onkeyup="reRenderMemeIMG(this)" " placeholder="text to add " type="text ">
-            <div class="text-controle-line-1 flex row justify-center ">
-                <button  class="switch-line-btn controle-btn " onclick="switchLine() "><img src="./images/line_down.png " alt=" "><img src="./images/line_up.png " alt=" "></button>
-                <button   class="add-line-btn controle-btn "onclick="addLine() ">+</button>
-                <button  class="delete-line-btn controle-btn " onmousedown="deleteCurrLine( ) "><img src="./images/delete.png " alt=" "></button>
+            <input class="text-to-draw" onkeyup="reRenderMemeIMG(this)"" placeholder="text to add" type="text">
+            <div class="text-controle-line-1 flex row justify-center">
+                <button  class="switch-line-btn controle-btn" onclick="switchLine()"><img src="./images/line_down.png" alt=""><img src="./images/line_up.png" alt=""></button>
+                <button   class="add-line-btn controle-btn"onclick="addLine()">+</button>
+                <button  class="delete-line-btn controle-btn" onmousedown="deleteCurrLine( )"><img src="./images/delete.png" alt=""></button>
             </div>
-            <div class="text-controle-line-2 flex row justify-around ">
-                <button class="btn controle-btn " onmousedown="moveLine( 'up') "><img src="./images/arrow_up.png " alt=" "></button>
-                <button class="btn controle-btn " onmousedown="moveLine( 'down') "><img src="./images/arrow_down.png " alt=" "></button>
-                <button class="btn controle-btn " onmousedown="moveLine( 'left') "><img src="./images/arrow_left.png " alt=" "></button>
-                <button class="btn controle-btn " onmousedown="moveLine( 'right') "><img src="./images/arrow_right.png " alt=" "></button>
+            <div class="text-controle-line-2 flex row justify-around">
+                <button class="btn controle-btn" onmousedown="moveLine( 'up')"><img src="./images/arrow_up.png" alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'down')"><img src="./images/arrow_down.png" alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'left')"><img src="./images/arrow_left.png" alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'right')"><img src="./images/arrow_right.png" alt=""></button>
             </div>
-            <div class="text-controle-line-2 flex row justify-around ">
+            <div class="text-controle-line-2 flex row justify-around">
 
-                <button  class="btn controle-btn " onclick="switchAlign( 'start') "><img src="./images/align_left.png " alt=" "></button>
-                <button  class="btn controle-btn " onclick="switchAlign( 'center') "><img src="./images/align_center.png " alt=" "></button>
-                <button  class="btn controle-btn " onclick="switchAlign( 'end') "><img src="./images/align_right.png " alt=" " ></button>
+                <button  class="btn controle-btn" onclick="switchAlign( 'start')"><img src="./images/align_left.png" alt=""></button>
+                <button  class="btn controle-btn" onclick="switchAlign( 'center')"><img src="./images/align_center.png" alt=""></button>
+                <button  class="btn controle-btn" onclick="switchAlign( 'end')"><img src="./images/align_right.png" alt="" ></button>
  
-                <button class="btn controle-btn " onmousedown="fontSizeChange( -2) " style="font-size: larger; ">A-</button>
-                <button class="btn controle-btn " onmousedown="fontSizeChange( 2) " style="font-size: larger; ">A+</button>
+                <button class="btn controle-btn" onmousedown="fontSizeChange( -2)" style="font-size: larger;">A-</button>
+                <button class="btn controle-btn" onmousedown="fontSizeChange( 2)" style="font-size: larger;">A+</button>
             </div>
-                <div class="font-and-colors ">
-                    <select name="fontFamily "  class="fontFamily " id="fontFamily " onchange="onFontChange(this.value) ">
-                    <option name="fontFamily " value="Impact ">Impact</option>
-                    <option name="fontFamily " value="Comic Sans MS ">Comic Sans</option>
-                    <option name="fontFamily " value="Arial ">Arial</option>
-                    <option name="fontFamily " value="Cursive ">Cursive</option>
+                <div class="font-and-colors">
+                    <select name="fontFamily"  class="fontFamily" id="fontFamily" onchange="onFontChange(this.value)">
+                    <option name="fontFamily" value="Impact">Impact</option>
+                    <option name="fontFamily" value="Comic Sans MS">Comic Sans</option>
+                    <option name="fontFamily" value="Arial">Arial</option>
+                    <option name="fontFamily" value="Cursive">Cursive</option>
                 </select>
-                <input type="color "  class="color-input " id="favcolor "  name="favcolor ">
+                <input type="color"  class="color-input" id="favcolor"  name="favcolor">
         </div>
     </div>
-    <div class="shapes ">
-        <!-- <button class="btn controle-btn " onclick="setCurrShape( 'triangle') ">Triangle</button>
-                <button class="btn controle-btn " onclick="setCurrShape( 'rect') ">Rect</button>
-                <button class="btn controle-btn " onclick="setCurrShape( 'line') ">Line</button>
-                <button class="btn controle-btn " onclick="setCurrShape( 'fan') ">fan</button>
-                <button class="btn controle-btn " onclick="setCurrShape( 'dna') ">DNA</button>
-                <button class="btn controle-btn " onclick="setCurrShape( 'circle') ">circle</button> -->
+    <div class="shapes">
+        <!-- <button class="btn controle-btn" onclick="setCurrShape( 'triangle')">Triangle</button>
 
-        <!-- <input class="btn controle-btn " type="color " onchange="setlines(this.value) "> -->
-        <!-- <button class="btn controle-btn " onclick="clearCanvas() ">Clear</button> -->
+            <button class="btn controle-btn" onclick="setCurrShape( 'rect')">Rect</button>
+                <button class="btn controle-btn" onclick="setCurrShape( 'line')">Line</button>
+                <button class="btn controle-btn" onclick="setCurrShape( 'fan')">fan</button>
+                <button class="btn controle-btn" onclick="setCurrShape( 'dna')">DNA</button>
+                <button class="btn controle-btn" onclick="setCurrShape( 'circle')">circle</button> -->
 
-        <!-- <a href="# " onclick="drawImg(this) " download=" ">img upload</a>
-            <a href="# " onclick="downloadCanvas(this) " download=" ">Download</a> -->
+        <!-- <input class="btn controle-btn" type="color" onchange="setlines(this.value)"> -->
+        <!-- <button class="btn controle-btn" onclick="clearCanvas()">Clear</button> -->
 
-    </div>
-
+        <!-- <a href="#" onclick="drawImg(this)" download="">img upload</a>
+            <a href="#" onclick="downloadCanvas(this)" download="">Download</a> -->
 
     </div>
 
-    <section class="gallery ">
-        <div class="gallery-header ">
-            <div class="secondary-header flex justify-around ">
-                <input onchange="onSearchWordChanged(this) " type="list " list="searchwords " name="searchwords " method="get " class="searchwords-search-bar ">
-                <datalist id="searchwords ">
-            <option value="excited "></option>
-            <option value="evil "></option>
-            <option value="funny "></option>
-            <option value="kittens "></option>
-            <option value="love "></option>
-            <option value="trump "></option>
-            <option value="dogs "></option>
-            <option value="wow "></option>
+
+    </div>
+
+    <section class="gallery">
+        <div class="gallery-header">
+            <div class="secondary-header flex justify-around">
+                <input onkeydown="onSearchWordChanged(this)" type="list" list="searchwords" name="searchwords" method="get" class="searchwords-search-bar">
+                <datalist id="searchwords">
+            <option value="Show All"></option>
+            <option value="excited"></option>
+            <option value="evil"></option>
+            <option value="funny"></option>
+            <option value="kittens"></option>
+            <option value="love"></option>
+            <option value="trump"></option>
+            <option value="dogs"></option>
+            <option value="wow"></option>
         </datalist>
-                <div class="search-words-dsiplay "></div>
+                <div class="search-words-dsiplay"></div>
             </div>
 
 
-
-            <div class="imgs-container grid ">
+            <div class="imgs-container grid">
             </div>
     </section>
 
@@ -105,8 +106,9 @@
 
 
 
-    <script src="js/service.js "></script>
-    <script src="js/main.js "></script>
+    <script src="js/memes.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
