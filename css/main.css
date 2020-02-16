@@ -2,6 +2,9 @@
     outline: none;
     box-sizing: border-box;
 }
+button{
+    cursor: pointer;
+}
 
 body {
     margin: 0;
@@ -229,8 +232,7 @@ body {
 }
 
 .fontFamily {
-    width: 150px;
-    height: 50px;
+padding: 0.6rem;
     box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
     border-radius: 10px;
     background-color: #ffffff;
@@ -256,6 +258,48 @@ body {
 
 .font-and-colors {
     align-self: center;
+    margin-bottom: 0.65rem;
+}
+.share-container >*{
+
+    font-size: 1.5rem;
+}
+.share-container a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.download-btn{
+    margin-inline-end: 0.7rem;
+    border: none;
+    padding: 0.3rem 1.3rem;
+height: 51px;
+box-shadow: 1px 6px 0 #632687, inset 0 5px 0 rgba(255, 255, 255, 0.3);
+border-radius: 15px;
+background-color: #8f44bb;
+color: #fff;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 1rem;
+}
+.download-img{
+   margin-inline-end: 5px;
+   width:14px;
+   height: 12px;
+}
+.publish-btn{
+    margin-inline-end: 0.7rem;
+    color: #fff;
+    font-size: 1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 51px;
+
+    padding: 0.3rem 1.3rem;
+    border: none;;
+    box-shadow: 1px 6px 0 #2c2687, inset 0 5px 0 rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+background-color: #1e7cd3;
+}
+.share-container{
+    display: inline;
 }
 
 
