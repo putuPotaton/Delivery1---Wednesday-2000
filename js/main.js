@@ -75,7 +75,7 @@ function rendIMGs(searchword = null) {
     var IMGs = getImgsToShow(searchword);
     var strHTML = '';
     IMGs.forEach(IMG => {
-        strHTML += `<img src="${IMG.src}" class="meme-gallery-IMG" title="${IMG.id}" id="${IMG.id}" onclick="onGalleryImageClicked(this.id)" alt="meme image not found">`;
+        strHTML += `<img src="${IMG.src}" class="meme-gallery-IMG " title="${IMG.id}" id="${IMG.id}" onclick="onGalleryImageClicked(this.id)" alt="meme image not found">`;
     })
     document.querySelector('.imgs-container').innerHTML = strHTML;
 }
@@ -367,7 +367,7 @@ function rendSearchWords() {
     var SearchWords = getSearchWords();
     SearchWords.forEach(searchWord => {
         var size = searchWord.clicks / 10 + 0.7;
-        strHTML += `<span onclick="onSearchWordClicked(this.innerText)" style="font-size: ${size}rem">${searchWord.word}</span>`
+        strHTML += `<span onclick="onSearchWordClicked(this.innerText)" class="tracking-in-expand"  style="font-size: ${size}rem">${searchWord.word}</span>`
         document.querySelector('.search-words-dsiplay ').innerHTML = strHTML;
     })
 }

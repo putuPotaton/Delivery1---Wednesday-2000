@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MeMe Gene</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -13,7 +14,9 @@
 <body onload="onInit()">
     <section class="top-section">
         <nav class="head-nav flex justify-between align-center">
-            <img class="logo-img" src="../DESIGN/LOGO/LOGO.png" alt="logo">
+            <!-- <img class="logo-img" src="./images/" alt="logo"> -->
+            <a href="/index.html"><h3>meme generator</h3></a>
+            
             <div class="nav-buttons">
                 <button class="btn-head-nav section-shifter" onclick="toggleSections(this)">Meme Maker</button>
                 <button class="btn-head-nav">memes</button>
@@ -22,82 +25,108 @@
 
 
     </section>
+    <div class="page-container">
 
 
     <div class="meme-editor">
 
         <div class="canvas-container flex-1 flex justify-center">
-            <canvas id="my-canvas" height="350" width="350" onmousedown="mousedown(event)" onmousemove="mousemove(event)" onmouseup="mouseup(event)" style="border: 1px solid black;"></canvas>
+            <canvas id="my-canvas" height="350" width="350" onmousedown="mousedown(event)"
+                onmousemove="mousemove(event)" onmouseup="mouseup(event)" style="border: 1px solid black;"></canvas>
         </div>
         <div class="editor-control flex  column flex-1">
-            <input class="text-to-draw" onkeyup="reRenderMemeIMG(this)"" placeholder="text to add" type="text">
+            <input class="text-to-draw" onkeyup="reRenderMemeIMG(this)"" placeholder=" text to add" type="text">
             <div class="text-controle-line-1 flex row justify-center">
-                <button  class="switch-line-btn controle-btn" onclick="switchLine()"><img src="./images/line_down.png" alt=""><img src="./images/line_up.png" alt=""></button>
-                <button   class="add-line-btn controle-btn"onclick="addLine()">+</button>
-                <button  class="delete-line-btn controle-btn" onmousedown="deleteCurrLine( )"><img src="./images/delete.png" alt=""></button>
+                <button title="switch line" class="switch-line-btn controle-btn" onclick="switchLine()"><img src="./images/line_down.png"
+                        alt=""><img src="./images/line_up.png" alt=""></button>
+                <button title="add line" class="add-line-btn controle-btn" onclick="addLine()">+</button>
+                <button title="remove line" class="delete-line-btn controle-btn" onmousedown="deleteCurrLine( )"><img
+                        src="./images/delete.png" alt=""></button>
             </div>
             <div class="text-controle-line-2 flex row justify-around">
-                <button class="btn controle-btn" onmousedown="moveLine( 'up')"><img src="./images/arrow_up.png" alt=""></button>
-                <button class="btn controle-btn" onmousedown="moveLine( 'down')"><img src="./images/arrow_down.png" alt=""></button>
-                <button class="btn controle-btn" onmousedown="moveLine( 'left')"><img src="./images/arrow_left.png" alt=""></button>
-                <button class="btn controle-btn" onmousedown="moveLine( 'right')"><img src="./images/arrow_right.png" alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'up')"><img src="./images/arrow_up.png"
+                        alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'down')"><img src="./images/arrow_down.png"
+                        alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'left')"><img src="./images/arrow_left.png"
+                        alt=""></button>
+                <button class="btn controle-btn" onmousedown="moveLine( 'right')"><img src="./images/arrow_right.png"
+                        alt=""></button>
             </div>
             <div class="text-controle-line-2 flex row justify-around">
 
-                <button  class="btn controle-btn" onclick="switchAlign( 'start')"><img src="./images/align_left.png" alt=""></button>
-                <button  class="btn controle-btn" onclick="switchAlign( 'center')"><img src="./images/align_center.png" alt=""></button>
-                <button  class="btn controle-btn" onclick="switchAlign( 'end')"><img src="./images/align_right.png" alt="" ></button>
- 
-                <button class="btn controle-btn" onmousedown="fontSizeChange( -2)" style="font-size: larger;">A-</button>
+                <button class="btn controle-btn" onclick="switchAlign( 'start')"><img src="./images/align_left.png"
+                        alt=""></button>
+                <button class="btn controle-btn" onclick="switchAlign( 'center')"><img src="./images/align_center.png"
+                        alt=""></button>
+                <button class="btn controle-btn" onclick="switchAlign( 'end')"><img src="./images/align_right.png"
+                        alt=""></button>
+
+                <button class="btn controle-btn" onmousedown="fontSizeChange( -2)"
+                    style="font-size: larger;">A-</button>
                 <button class="btn controle-btn" onmousedown="fontSizeChange( 2)" style="font-size: larger;">A+</button>
             </div>
-                <div class="font-and-colors">
-                    <select name="fontFamily"  class="fontFamily" id="fontFamily" onchange="onFontChange(this.value)">
+            <div class="font-and-colors">
+                <select name="fontFamily" class="fontFamily" id="fontFamily" onchange="onFontChange(this.value)">
                     <option name="fontFamily" value="Impact">Impact</option>
                     <option name="fontFamily" value="Comic Sans MS">Comic Sans</option>
                     <option name="fontFamily" value="Arial">Arial</option>
                     <option name="fontFamily" value="Cursive">Cursive</option>
                 </select>
-                <input type="color" onchange="onFillChange(this.value)" class="color-input" id="favcolor"  name="favcolor">
-                <input type="color" onchange="onStrokeChange(this.value)" class="color-input" id="favcolor"  name="favcolor">
+
+
+                <div class="color-container">
+                    <label for="fill-color" class="fill-color-label"> 
+                        <i class="fas fa-paint-brush"></i></label>
+                    <input name="fill-color" id="fill-color" type="color" onchange="onFillChange(this.value)" class="field-radio fill-input">
+                    <label for="favcolor" class="fill-color-label"> 
+                        <i class="fas fa-pencil-alt"></i>
+                    </label>
+                    <input type="color" onchange="onStrokeChange(this.value)" class="fill-input" id="favcolor"
+                    name="favcolor">                    
                 </div>
-                <div class="save-share flex align-center justify-center">
-                    <a class="download" download="My_NEW_MEME.png">
-                        <button class="download-btn" type="button" onClick="downloadMeme()">
-                            <img src="images/download.png" class="download-img"  alt=""> Download</button>
-                        </a> 
-                        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-                            <input name="img" id="imgData" type="hidden" value="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAGQAZADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//Z">
-                            <button class="publish-btn" type="submit">Publish</button>
-                            <div class="share-container">
-                                <span class="fa fa-facebook"></span>
-                                <!-- <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2'); return false;">
+
+
+            </div>
+            <div class="save-share flex align-center justify-center">
+                <a class="download" download="My_NEW_MEME.png">
+                    <button class="download-btn" type="button" onClick="downloadMeme()">
+                        <img src="images/download.png" class="download-img" alt=""> Download</button>
+                </a>
+                <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                    <input name="img" id="imgData" type="hidden"
+                        value="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAGQAZADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//Z">
+                    <button class="publish-btn" type="submit">Publish</button>
+                    <div class="share-container">
+                        <span class="fa fa-facebook"></span>
+                        <!-- <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2&amp;t=http%3A%2F%2Fca-upload.com%2Fhere%2FserveForShare.php%3Fid%3D5e497ae3ed5c2'); return false;">
                                    Share   
                                 </a> -->
-                            </div>
-                          </form>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 
-    </div>
 
     <section class="gallery">
         <div class="gallery-header">
             <div class="secondary-header flex justify-around">
-                <input onkeydown="onSearchWordChanged(this)" type="list" list="searchwords" name="searchwords" method="get" class="searchwords-search-bar">
+                <input onkeydown="onSearchWordChanged(this)" type="list" list="searchwords" name="searchwords"
+                    method="get" class="searchwords-search-bar tracking-in-expand">
                 <datalist id="searchwords">
-            <option value="Show All"></option>
-            <option value="excited"></option>
-            <option value="evil"></option>
-            <option value="funny"></option>
-            <option value="kittens"></option>
-            <option value="love"></option>
-            <option value="trump"></option>
-            <option value="dogs"></option>
-            <option value="wow"></option>
-        </datalist>
+                    <option value="show-all" name="show-all" id="show-all">Show All</option>
+                    <!-- <label for="show-all"> Show all</label> -->
+                    <option value="excited"></option>
+                    <option value="evil"></option>
+                    <option value="funny"></option>
+                    <option value="kittens"></option>
+                    <option value="love"></option>
+                    <option value="trump"></option>
+                    <option value="dogs"></option>
+                    <option value="wow"></option>
+                </datalist>
                 <div class="search-words-dsiplay"></div>
             </div>
 
@@ -105,6 +134,13 @@
             <div class="imgs-container grid">
             </div>
     </section>
+</div>
+</div>
+
+    <footer class="footer">
+        <span class="footer-text tracking-in-expand"> cofeeRights - Tamir Ben-Simon
+        </span>
+    </footer>
 
 
 
